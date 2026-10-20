@@ -1,11 +1,15 @@
 'use strict';
 
+const Logger = require('./lib/common/logger.js');
+require('./lib/common/error-tracking.js').init('bbb-webrtc-sfu', {
+  logger: Logger, config: require('config').sentry,
+});
+
 const config = require('config');
 const WebsocketConnectionManager = require('./lib/main/ws-connection-manager.js');
 const ConnectionManager = require('./lib/main/connection-manager.js');
 const SFUModuleManager = require('./lib/main/sfu-module-manager.js');
 const Janitor = require('./lib/main/janitor.js');
-const Logger = require('./lib/common/logger.js');
 
 const HTTP_SERVER_HOST = config.has('clientHost') ? config.get('clientHost') : '127.0.0.1';
 const HTTP_SERVER_PORT = config.get('clientPort');
