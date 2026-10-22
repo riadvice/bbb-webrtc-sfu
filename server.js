@@ -1,5 +1,6 @@
 'use strict';
 
+require('./lib/common/telemetry.js');
 const config = require('config');
 const WebsocketConnectionManager = require('./lib/main/ws-connection-manager.js');
 const ConnectionManager = require('./lib/main/connection-manager.js');
